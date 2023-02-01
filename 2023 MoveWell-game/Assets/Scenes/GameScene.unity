@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -811,6 +811,99 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302981532}
   m_CullTransparentMesh: 1
+--- !u!1 &343740149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 343740151}
+  - component: {fileID: 343740150}
+  m_Layer: 0
+  m_Name: Cup B
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &343740150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343740149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa648dc110e718e4785a01f0f16a66f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smartObjectName: MoveWell Cup B
+  rfid: 1
+  button: 0
+  touch: 0
+  accelerometer: 0
+  gyroscope: 0
+  readRFID:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 773190229}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: test
+          m_BoolArgument: 0
+        m_CallState: 1
+  detectButton:
+    m_PersistentCalls:
+      m_Calls: []
+  detectTouch:
+    m_PersistentCalls:
+      m_Calls: []
+  releaseRFID:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: ping
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  releaseButton:
+    m_PersistentCalls:
+      m_Calls: []
+  releaseTouch:
+    m_PersistentCalls:
+      m_Calls: []
+  toyobject: {fileID: 0}
+--- !u!4 &343740151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343740149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9972534, y: 3.7219849, z: 0.53271484}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &355389616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,6 +1285,99 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576817107}
   m_CullTransparentMesh: 1
+--- !u!1 &651572017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 651572019}
+  - component: {fileID: 651572018}
+  m_Layer: 0
+  m_Name: Cup C
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &651572018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651572017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa648dc110e718e4785a01f0f16a66f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smartObjectName: MoveWell Cup C
+  rfid: 1
+  button: 0
+  touch: 0
+  accelerometer: 0
+  gyroscope: 0
+  readRFID:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 773190229}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: test
+          m_BoolArgument: 0
+        m_CallState: 1
+  detectButton:
+    m_PersistentCalls:
+      m_Calls: []
+  detectTouch:
+    m_PersistentCalls:
+      m_Calls: []
+  releaseRFID:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: ping
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  releaseButton:
+    m_PersistentCalls:
+      m_Calls: []
+  releaseTouch:
+    m_PersistentCalls:
+      m_Calls: []
+  toyobject: {fileID: 0}
+--- !u!4 &651572019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651572017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9972534, y: 3.7219849, z: 0.53271484}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &667064938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,7 +1694,7 @@ GameObject:
   - component: {fileID: 773190232}
   - component: {fileID: 773190231}
   - component: {fileID: 773190230}
-  - component: {fileID: 773190234}
+  - component: {fileID: 773190235}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1594,7 +1780,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &773190234
+--- !u!114 &773190235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1603,9 +1789,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 773190229}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4ff2dfdd45b4245b740e8b8227dd3b, type: 3}
+  m_Script: {fileID: 11500000, guid: b4eaa5ded427a4847bd80f47d744f733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EV_A: {fileID: 1163776599}
+  EV_B: {fileID: 343740150}
+  EV_C: {fileID: 651572018}
+  EV_D: {fileID: 1199510215}
+  EV_E: {fileID: 1170286841}
 --- !u!1 &798838543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,7 +2112,7 @@ GameObject:
   - component: {fileID: 1163776598}
   - component: {fileID: 1163776599}
   m_Layer: 0
-  m_Name: Smart Toy ev
+  m_Name: Cup A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1954,8 +2145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa648dc110e718e4785a01f0f16a66f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smartObjectName: 
-  rfid: 0
+  smartObjectName: MoveWell Cup A
+  rfid: 1
   button: 0
   touch: 0
   accelerometer: 0
@@ -1963,9 +2154,9 @@ MonoBehaviour:
   readRFID:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 773190234}
+      - m_Target: {fileID: 773190229}
         m_TargetAssemblyTypeName: 
-        m_MethodName: ping2
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1984,7 +2175,7 @@ MonoBehaviour:
   releaseRFID:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 773190234}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: ping
         m_Mode: 1
@@ -2003,6 +2194,192 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   toyobject: {fileID: 0}
+--- !u!1 &1170286840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1170286842}
+  - component: {fileID: 1170286841}
+  m_Layer: 0
+  m_Name: Cup E
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1170286841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170286840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa648dc110e718e4785a01f0f16a66f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smartObjectName: Movewell Cup E
+  rfid: 1
+  button: 0
+  touch: 0
+  accelerometer: 0
+  gyroscope: 0
+  readRFID:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 773190229}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: test
+          m_BoolArgument: 0
+        m_CallState: 1
+  detectButton:
+    m_PersistentCalls:
+      m_Calls: []
+  detectTouch:
+    m_PersistentCalls:
+      m_Calls: []
+  releaseRFID:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: ping
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  releaseButton:
+    m_PersistentCalls:
+      m_Calls: []
+  releaseTouch:
+    m_PersistentCalls:
+      m_Calls: []
+  toyobject: {fileID: 0}
+--- !u!4 &1170286842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170286840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9972534, y: 3.7219849, z: 0.53271484}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1199510214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1199510216}
+  - component: {fileID: 1199510215}
+  m_Layer: 0
+  m_Name: Cup D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1199510215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199510214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa648dc110e718e4785a01f0f16a66f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smartObjectName: MoveWell Cup D
+  rfid: 1
+  button: 0
+  touch: 0
+  accelerometer: 0
+  gyroscope: 0
+  readRFID:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 773190229}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: test
+          m_BoolArgument: 0
+        m_CallState: 1
+  detectButton:
+    m_PersistentCalls:
+      m_Calls: []
+  detectTouch:
+    m_PersistentCalls:
+      m_Calls: []
+  releaseRFID:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: ping
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  releaseButton:
+    m_PersistentCalls:
+      m_Calls: []
+  releaseTouch:
+    m_PersistentCalls:
+      m_Calls: []
+  toyobject: {fileID: 0}
+--- !u!4 &1199510216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199510214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9972534, y: 3.7219849, z: 0.53271484}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1251390312
 GameObject:
   m_ObjectHideFlags: 0

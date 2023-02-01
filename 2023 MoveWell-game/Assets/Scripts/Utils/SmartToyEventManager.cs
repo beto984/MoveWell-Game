@@ -77,6 +77,7 @@ public class SmartToyEventManager : MonoBehaviour
 
     private void ManageTCP(JArray eventMessage)
     {
+        Debug.Log(eventMessage.ToString());
         MessagecountTCP++;
         foreach (var singleEvent in eventMessage)
         {
@@ -94,6 +95,7 @@ public class SmartToyEventManager : MonoBehaviour
                                 string readtag = eventObject.GetValue("value").Value<string>();
                                 if (lastreadrfid != readtag && (readtag != "" && readtag != null))
                                 {
+                                    Debug.Log("HI " + MagicRoomManager.instance.MagicRoomSmartToyManager.GetRfidAssosiation(readtag));
                                     readRFID?.Invoke(MagicRoomManager.instance.MagicRoomSmartToyManager.GetRfidAssosiation(readtag));
                                 }
                                 if ((readtag == "" || readtag == null))

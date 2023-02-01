@@ -11,6 +11,7 @@ public class DisplayManager : MonoBehaviour
     JArray manifest = new JArray();
     public Image backgroundImage;
     public GameObject grid;
+    public EventInterceptor EI;
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +33,10 @@ public class DisplayManager : MonoBehaviour
         
     }
 
-    void SetUpConfiguration() {
+    public void SetUpConfiguration() {
         int random = Random.Range(0, manifest.Count-1);
 
-        JObject o = (JObject)manifest[5];
+        JObject o = (JObject)manifest[random];
 
         Debug.Log(o.ToString());
         StreamingAssetManager.instance.LoadImageFromStreamingAsset("images/background", o["background"].ToString(), (tex) =>
@@ -69,6 +70,10 @@ public class DisplayManager : MonoBehaviour
                 grid.transform.GetChild(i).GetComponent<Image>().sprite = null;
                 grid.transform.GetChild(i).GetComponent<Image>().color = Color.clear;
             }
+        }
+        for(int i = 0; i < 5; i++)
+        {
+            EI.solution[i] = o["solution"][i].ToString();
         }
     }
 

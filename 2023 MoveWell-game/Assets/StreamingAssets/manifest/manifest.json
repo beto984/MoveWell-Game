@@ -12,7 +12,7 @@
 				"color": 1
 			},
 			{
-				"position": 16,
+				"position": 16	,
 				"color": 2
 			},
 			{
@@ -23,7 +23,8 @@
 				"position": 12,
 				"color": 4
 			}
-		]
+		],
+		"solution": ["R","Y","P","B","G"]	
 	},
 	{
 		"background": "Beach2.png",

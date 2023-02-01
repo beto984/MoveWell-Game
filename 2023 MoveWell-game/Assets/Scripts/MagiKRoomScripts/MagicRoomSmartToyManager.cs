@@ -231,6 +231,7 @@ public class MagicRoomSmartToyManager : MonoBehaviour
 
     public string GetSmartToyIDByName(string name)
     {
+        Debug.Log(toys.Values);
         return toys.Values.FirstOrDefault(x => x.name == name).GetComponent<SmartToy>().state.Id;
     }
 
