@@ -36,7 +36,7 @@ public class DisplayManager : MonoBehaviour
     public void SetUpConfiguration() {
         int random = Random.Range(0, manifest.Count-1);
 
-        JObject o = (JObject)manifest[random];
+        JObject o = (JObject)manifest[4];
 
         Debug.Log(o.ToString());
         StreamingAssetManager.instance.LoadImageFromStreamingAsset("images/background", o["background"].ToString(), (tex) =>
