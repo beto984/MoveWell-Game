@@ -31,52 +31,54 @@
 		"optionImage": "Turtle (beach2).png",
 		"options": [
 			{
-				"position": 20,
+				"position": 10,
 				"color": 0
 			},
 			{
-				"position":16,
-				"color": 2
-			},
-			{
-				"position": 17,
-				"color": 3
-			},
-			{
-				"position": 13,
+				"position":6,
 				"color": 1
 			},
 			{
-				"position": 24,
+				"position": 17,
+				"color": 2
+			},
+			{
+				"position": 13,
+				"color": 3
+			},
+			{
+				"position": 9,
 				"color": 4
 			}
-		]
+		],
+		"solution": ["R","B","G","Y","P"]
 	},
 	{
 		"background": "Sky.png",
 		"optionImage": "Balloon.png",
 		"options": [
 			{
-				"position": 20,
+				"position": 7,
 				"color": 0
 			},
 			{
-				"position":16,
-				"color": 2
-			},
-			{
-				"position": 17,
-				"color": 3
-			},
-			{
-				"position": 13,
+				"position":1,
 				"color": 1
 			},
 			{
-				"position": 24,
+				"position": 12,
+				"color": 2
+			},
+			{
+				"position": 18,
+				"color": 3
+			},
+			{
+				"position": 22,
 				"color": 4
 			}
-		]
+		],
+		"solution" : ["B","R","G","Y","P"]
 	},
 	{
 		"background": "Forest.png",
@@ -88,72 +90,48 @@
 			},
 			{
 				"position":17,
-				"color": 2
+				"color": 1
 			},
 			{
 				"position": 11,
-				"color": 3
+				"color": 2
 			},
 			{
 				"position": 8,
-				"color": 1
+				"color": 3
 			},
 			{
 				"position": 2,
 				"color": 4
 			}
-		]
-	},
-	{
-		"background": "Forest.png",
-		"optionImage": "Bird.png",
-		"options": [
-			{
-				"position": 21,
-				"color": 2
-			},
-			{
-				"position":17,
-				"color": 0
-			},
-			{
-				"position": 11,
-				"color": 1
-			},
-			{
-				"position": 8,
-				"color": 4
-			},
-			{
-				"position": 2,
-				"color": 3
-			}
-		]
+		], 
+		"solution" : ["P","Y","G","B","R"]
 	},
 	{
 		"background": "Sky.png",
 		"optionImage": "Plane.png",
 		"options": [
 			{
-				"position": 10,
-				"color": 1
-			},
-			{
-				"position":6,
+				"position": 14,
 				"color": 0
 			},
 			{
-				"position":17,
-				"color": 3
+				"position":8,
+				"color": 1
 			},
 			{
-				"position": 13,
+				"position":16,
 				"color": 2
 			},
 			{
-				"position":9,
+				"position": 12,
+				"color": 3
+			},
+			{
+				"position":10,
 				"color": 4
 			}
-		]
+		],
+		"solution" : ["P","G","Y","B","R"]
 	}
 ]
