@@ -5,20 +5,24 @@ using UnityEngine;
 public class EventInterceptor : MonoBehaviour
 {
     Dictionary<string, int> positionsMap = new Dictionary<string, int>();
-    string[] currentSpheresPositions = new string[5];
+    string[] currentSpheresPositions;
 
     public SmartToyEventManager EV_A;
     public SmartToyEventManager EV_B;
     public SmartToyEventManager EV_C;
     public SmartToyEventManager EV_D;
     public SmartToyEventManager EV_E;
+    private bool inreward = false;
     [SerializeField] public DisplayManager disManager;
     bool init = true;
     public string[] solution;
 
+    private AudioSource rewardSound;
+
     // Start is called before the first frame update
     void Awake()
     {
+        currentSpheresPositions = new string[5];
         solution = new string[5];
         positionsMap.Add("0V", 0);
         positionsMap.Add("0H", 0);
@@ -30,6 +34,11 @@ public class EventInterceptor : MonoBehaviour
         positionsMap.Add("3H", 3);
         positionsMap.Add("4H", 4);
         positionsMap.Add("4V", 4);
+    }
+
+    private void Start()
+    {
+        rewardSound = disManager.gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,18 +60,22 @@ public class EventInterceptor : MonoBehaviour
         }
 
         //check for the solution
-        if (allSpheresArePlaced(currentSpheresPositions))
+        if (allSpheresArePlaced() && solution[1] != null)
         {
+            Debug.Log("Balls placed");
             if (checkAnswer(currentSpheresPositions, solution))
             {
+                currentSpheresPositions = new string[5];
                 solution = new string[5];
                 //reward
                 StartCoroutine(reward());
             }
-            else {
-                //StartCoroutine(badReward());
+            else if ( !inreward) {
+                inreward = true;
+                StartCoroutine(badReward());
             }
-        }
+        } 
+        
     }
 
     public void ReadTagA(string tag)
@@ -248,11 +261,11 @@ public class EventInterceptor : MonoBehaviour
         }
     }
 
-    private bool allSpheresArePlaced(string[] positions)
+    private bool allSpheresArePlaced()
     {
-        for(int i = 0; i < positions.Length; i++)
+        for(int i = 0; i < currentSpheresPositions.Length; i++)
         {
-            if(positions[i] == "")
+            if(currentSpheresPositions[i] == "" || currentSpheresPositions[i] == null)
             {
                 return false;
             }
@@ -277,11 +290,13 @@ public class EventInterceptor : MonoBehaviour
 
     private IEnumerator reward()
     {
-     
+       
         MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.green);
+        rewardSound.Play();
         yield return new WaitForSeconds(3);
         MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.black);
         disManager.SetUpConfiguration();
+        rewardSound.Stop();
     }
 
     private IEnumerator badReward()
@@ -289,5 +304,6 @@ public class EventInterceptor : MonoBehaviour
         MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
         yield return new WaitForSeconds(3);
         MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.black);
+        inreward = false;
     }
 }
