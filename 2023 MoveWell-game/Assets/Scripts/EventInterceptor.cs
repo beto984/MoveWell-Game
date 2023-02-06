@@ -17,13 +17,19 @@ public class EventInterceptor : MonoBehaviour
     public string[] solution;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        positionsMap.Add("A", 1);
-        //positionsMap.Add("B", 2);
-        //positionsMap.Add("C", 3);
-        //positionsMap.Add("D", 4);
-        //positionsMap.Add("E", 5);
+        solution = new string[5];
+        positionsMap.Add("0V", 0);
+        positionsMap.Add("0H", 0);
+        positionsMap.Add("1V", 1);
+        positionsMap.Add("1H", 1);
+        positionsMap.Add("2V", 2);
+        positionsMap.Add("2H", 2);
+        positionsMap.Add("3V", 3);
+        positionsMap.Add("3H", 3);
+        positionsMap.Add("4H", 4);
+        positionsMap.Add("4V", 4);
     }
 
     // Update is called once per frame
@@ -45,17 +51,46 @@ public class EventInterceptor : MonoBehaviour
         }
 
         //check for the solution
-        if(currentSpheresPositions == solution)
+        if (allSpheresArePlaced(currentSpheresPositions))
         {
-            //reward
-            disManager.SetUpConfiguration();
+            if (checkAnswer(currentSpheresPositions, solution))
+            {
+                solution = new string[5];
+                //reward
+                StartCoroutine(reward());
+            }
+            else {
+                //StartCoroutine(badReward());
+            }
         }
     }
 
     public void ReadTagA(string tag)
     {
-        Debug.Log("Hello Red");
+        Debug.Log("Hello Red");        
         currentSpheresPositions[positionsMap[tag]] = "R";
+        Debug.Log("Current sphere positions [" +
+            currentSpheresPositions[0] +
+            ", " +
+            currentSpheresPositions[1] +
+            ", " +
+            currentSpheresPositions[2] +
+            ", " +
+            currentSpheresPositions[3] +
+            ", " +
+            currentSpheresPositions[4] +
+            "]");
+        Debug.Log("solution [" +
+            solution[0] +
+            ", " +
+            solution[1] +
+            ", " +
+            solution[2] +
+            ", " +
+            solution[3] +
+            ", " +
+            solution[4] +
+            "]");
     }
 
     public void ReleaseTagA()
@@ -68,6 +103,28 @@ public class EventInterceptor : MonoBehaviour
     {
         Debug.Log("Hello Pink");
         currentSpheresPositions[positionsMap[tag]] = "P";
+        Debug.Log("Current sphere positions [" +
+            currentSpheresPositions[0] +
+            ", " +
+            currentSpheresPositions[1] +
+            ", " +
+            currentSpheresPositions[2] +
+            ", " +
+            currentSpheresPositions[3] +
+            ", " +
+            currentSpheresPositions[4] +
+            "]");
+        Debug.Log("solution [" +
+            solution[0] +
+            ", " +
+            solution[1] +
+            ", " +
+            solution[2] +
+            ", " +
+            solution[3] +
+            ", " +
+            solution[4] +
+            "]");
     }
 
     public void ReleaseTagB()
@@ -78,8 +135,30 @@ public class EventInterceptor : MonoBehaviour
     
     public void ReadTagC(string tag)
     {
-        Debug.Log("Hello Green");
+        Debug.Log("Hello Green");        
         currentSpheresPositions[positionsMap[tag]] = "G";
+        Debug.Log("Current sphere positions [" +
+            currentSpheresPositions[0] +
+            ", " +
+            currentSpheresPositions[1] +
+            ", " +
+            currentSpheresPositions[2] +
+            ", " +
+            currentSpheresPositions[3] +
+            ", " +
+            currentSpheresPositions[4] +
+            "]");
+        Debug.Log("solution [" +
+            solution[0] +
+            ", " +
+            solution[1] +
+            ", " +
+            solution[2] +
+            ", " +
+            solution[3] +
+            ", " +
+            solution[4] +
+            "]");
     }
 
     public void ReleaseTagC()
@@ -89,8 +168,30 @@ public class EventInterceptor : MonoBehaviour
     }
 
     public void ReadTagD(string tag) {
-        Debug.Log("Hello Yellow");
+        Debug.Log("Hello Yellow");       
         currentSpheresPositions[positionsMap[tag]] = "Y";
+        Debug.Log("Current sphere positions [" +
+            currentSpheresPositions[0] +
+            ", " +
+            currentSpheresPositions[1] +
+            ", " +
+            currentSpheresPositions[2] +
+            ", " +
+            currentSpheresPositions[3] +
+            ", " +
+            currentSpheresPositions[4] +
+            "]");
+        Debug.Log("solution [" +
+            solution[0] +
+            ", " +
+            solution[1] +
+            ", " +
+            solution[2] +
+            ", " +
+            solution[3] +
+            ", " +
+            solution[4] +
+            "]");
 
     }
     public void ReleaseTagD()
@@ -102,7 +203,30 @@ public class EventInterceptor : MonoBehaviour
     public void ReadTagE(string tag)
     {
         Debug.Log("HI blue");
+        
         currentSpheresPositions[positionsMap[tag]] = "B";
+        Debug.Log("Current sphere positions [" +
+            currentSpheresPositions[0] +
+            ", " +
+            currentSpheresPositions[1] +
+            ", " +
+            currentSpheresPositions[2] +
+            ", " +
+            currentSpheresPositions[3] +
+            ", " +
+            currentSpheresPositions[4] +
+            "]");
+        /*Debug.Log("solution [" +
+            solution[0] +
+            ", " +
+            solution[1] +
+            ", " +
+            solution[2] +
+            ", " +
+            solution[3] +
+            ", " +
+            solution[4] +
+            "]");*/
     }
     public void ReleaseTagE()
     {
@@ -122,5 +246,48 @@ public class EventInterceptor : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private bool allSpheresArePlaced(string[] positions)
+    {
+        for(int i = 0; i < positions.Length; i++)
+        {
+            if(positions[i] == "")
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private bool checkAnswer(string[] positions, string[] solution)
+    {
+        
+
+        for(int i = 0; i<positions.Length; i++)
+        {
+            if(positions[i] != solution[i])
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private IEnumerator reward()
+    {
+     
+        MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.green);
+        yield return new WaitForSeconds(3);
+        MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.black);
+        disManager.SetUpConfiguration();
+    }
+
+    private IEnumerator badReward()
+    {
+        MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
+        yield return new WaitForSeconds(3);
+        MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.black);
     }
 }

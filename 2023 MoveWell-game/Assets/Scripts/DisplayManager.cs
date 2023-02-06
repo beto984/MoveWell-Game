@@ -12,6 +12,7 @@ public class DisplayManager : MonoBehaviour
     public Image backgroundImage;
     public GameObject grid;
     public EventInterceptor EI;
+    public GameObject floorMask;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,7 @@ public class DisplayManager : MonoBehaviour
     public void SetUpConfiguration() {
         int random = Random.Range(0, manifest.Count-1);
 
-        JObject o = (JObject)manifest[4];
+        JObject o = (JObject)manifest[random];
 
         Debug.Log(o.ToString());
         StreamingAssetManager.instance.LoadImageFromStreamingAsset("images/background", o["background"].ToString(), (tex) =>
@@ -71,10 +72,25 @@ public class DisplayManager : MonoBehaviour
                 grid.transform.GetChild(i).GetComponent<Image>().color = Color.clear;
             }
         }
+        
         for(int i = 0; i < 5; i++)
         {
+            Debug.Log(o["solution"][i].ToString());
+            Debug.Log(EI.solution.Length);
             EI.solution[i] = o["solution"][i].ToString();
+
+
         }
+
+        /*if (false)//o["orientation"].ToString() == "horizontal")
+        {
+            floorMask.transform.GetChild(0).gameObject.SetActive(false);
+            floorMask.transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else {
+            floorMask.transform.GetChild(0).gameObject.SetActive(true);
+            floorMask.transform.GetChild(1).gameObject.SetActive(false);
+        }*/
     }
 
     int GetColorForPosition(int i, JArray pos)
