@@ -1898,6 +1898,7 @@ MonoBehaviour:
   EV_E: {fileID: 1170286841}
   disManager: {fileID: 94643740}
   solution: []
+  isVertical: 0
 --- !u!1 &798838543
 GameObject:
   m_ObjectHideFlags: 0

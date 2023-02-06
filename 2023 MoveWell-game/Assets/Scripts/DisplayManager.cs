@@ -31,7 +31,9 @@ public class DisplayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyUp(KeyCode.Space)) {
+            SetUpConfiguration();
+        }
     }
 
     public void SetUpConfiguration() {

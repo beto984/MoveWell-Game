@@ -26,22 +26,18 @@ public class EventInterceptor : MonoBehaviour
         currentSpheresPositions = new string[5];
         solution = new string[5];
 
-        if (isVertical)
-        {
+        
             positionsMap.Add("0V", 0);
             positionsMap.Add("1V", 1);
             positionsMap.Add("2V", 2);
             positionsMap.Add("3V", 3);
             positionsMap.Add("4V", 4);
-        }
-        else
-        {
             positionsMap.Add("0H", 0);
             positionsMap.Add("1H", 1);
             positionsMap.Add("2H", 2);
             positionsMap.Add("3H", 3);
             positionsMap.Add("4H", 4);
-        }
+        
     }
 
     private void Start()
