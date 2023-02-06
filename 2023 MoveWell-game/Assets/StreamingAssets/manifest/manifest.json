@@ -24,7 +24,8 @@
 				"color": 4
 			}
 		],
-		"solution": ["R","Y","P","B","G"]	
+		"solution": ["R","Y","P","B","G"],
+		"orientation": "h"
 	},
 	{
 		"background": "Beach2.png",
@@ -51,7 +52,8 @@
 				"color": 4
 			}
 		],
-		"solution": ["R","B","G","Y","P"]
+		"solution": ["R","B","G","Y","P"],
+		"orientation": "h"
 	},
 	{
 		"background": "Sky.png",
@@ -78,7 +80,8 @@
 				"color": 4
 			}
 		],
-		"solution" : ["B","R","G","Y","P"]
+		"solution" : ["B","R","G","Y","P"],
+		"orientation": "v"
 	},
 	{
 		"background": "Forest.png",
@@ -105,7 +108,8 @@
 				"color": 4
 			}
 		], 
-		"solution" : ["P","Y","G","B","R"]
+		"solution" : ["P","Y","G","B","R"],
+		"orientation": "v"
 	},
 	{
 		"background": "Sky.png",
@@ -132,6 +136,7 @@
 				"color": 4
 			}
 		],
-		"solution" : ["P","G","Y","B","R"]
+		"solution" : ["P","G","Y","B","R"],
+		"orientation": "h"
 	}
 ]
