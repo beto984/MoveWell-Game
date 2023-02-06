@@ -16,6 +16,7 @@ public class EventInterceptor : MonoBehaviour
     [SerializeField] public DisplayManager disManager;
     bool init = true;
     public string[] solution;
+    public bool isVertical;
 
     private AudioSource rewardSound;
 
@@ -24,16 +25,23 @@ public class EventInterceptor : MonoBehaviour
     {
         currentSpheresPositions = new string[5];
         solution = new string[5];
-        positionsMap.Add("0V", 0);
-        positionsMap.Add("0H", 0);
-        positionsMap.Add("1V", 1);
-        positionsMap.Add("1H", 1);
-        positionsMap.Add("2V", 2);
-        positionsMap.Add("2H", 2);
-        positionsMap.Add("3V", 3);
-        positionsMap.Add("3H", 3);
-        positionsMap.Add("4H", 4);
-        positionsMap.Add("4V", 4);
+
+        if (isVertical)
+        {
+            positionsMap.Add("0V", 0);
+            positionsMap.Add("1V", 1);
+            positionsMap.Add("2V", 2);
+            positionsMap.Add("3V", 3);
+            positionsMap.Add("4V", 4);
+        }
+        else
+        {
+            positionsMap.Add("0H", 0);
+            positionsMap.Add("1H", 1);
+            positionsMap.Add("2H", 2);
+            positionsMap.Add("3H", 3);
+            positionsMap.Add("4H", 4);
+        }
     }
 
     private void Start()
@@ -81,7 +89,11 @@ public class EventInterceptor : MonoBehaviour
     public void ReadTagA(string tag)
     {
         Debug.Log("Hello Red");        
-        currentSpheresPositions[positionsMap[tag]] = "R";
+        if (positionsMap.ContainsKey(tag))
+        {
+            currentSpheresPositions[positionsMap[tag]] = "R";
+
+        }
         Debug.Log("Current sphere positions [" +
             currentSpheresPositions[0] +
             ", " +
@@ -115,7 +127,11 @@ public class EventInterceptor : MonoBehaviour
     public void ReadTagB(string tag)
     {
         Debug.Log("Hello Pink");
-        currentSpheresPositions[positionsMap[tag]] = "P";
+        if (positionsMap.ContainsKey(tag))
+        {
+            currentSpheresPositions[positionsMap[tag]] = "P";
+
+        }
         Debug.Log("Current sphere positions [" +
             currentSpheresPositions[0] +
             ", " +
@@ -149,7 +165,11 @@ public class EventInterceptor : MonoBehaviour
     public void ReadTagC(string tag)
     {
         Debug.Log("Hello Green");        
-        currentSpheresPositions[positionsMap[tag]] = "G";
+        if (positionsMap.ContainsKey(tag))
+        {
+            currentSpheresPositions[positionsMap[tag]] = "G";
+
+        }
         Debug.Log("Current sphere positions [" +
             currentSpheresPositions[0] +
             ", " +
@@ -181,8 +201,12 @@ public class EventInterceptor : MonoBehaviour
     }
 
     public void ReadTagD(string tag) {
-        Debug.Log("Hello Yellow");       
-        currentSpheresPositions[positionsMap[tag]] = "Y";
+        Debug.Log("Hello Yellow");
+        if (positionsMap.ContainsKey(tag))
+        {
+            currentSpheresPositions[positionsMap[tag]] = "Y";
+
+        }
         Debug.Log("Current sphere positions [" +
             currentSpheresPositions[0] +
             ", " +
@@ -217,7 +241,11 @@ public class EventInterceptor : MonoBehaviour
     {
         Debug.Log("HI blue");
         
-        currentSpheresPositions[positionsMap[tag]] = "B";
+        if (positionsMap.ContainsKey(tag))
+        {
+            currentSpheresPositions[positionsMap[tag]] = "B";
+
+        }
         Debug.Log("Current sphere positions [" +
             currentSpheresPositions[0] +
             ", " +

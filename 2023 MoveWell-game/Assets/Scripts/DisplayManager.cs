@@ -75,11 +75,18 @@ public class DisplayManager : MonoBehaviour
         
         for(int i = 0; i < 5; i++)
         {
-            Debug.Log(o["solution"][i].ToString());
-            Debug.Log(EI.solution.Length);
             EI.solution[i] = o["solution"][i].ToString();
 
 
+        }
+
+        if (o["orientation"].ToString() == "v")
+        {
+            EI.isVertical = true;
+        }
+        else
+        {
+            EI.isVertical = false;
         }
 
         /*if (false)//o["orientation"].ToString() == "horizontal")
