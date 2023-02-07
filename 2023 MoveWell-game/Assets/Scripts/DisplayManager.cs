@@ -13,6 +13,7 @@ public class DisplayManager : MonoBehaviour
     public GameObject grid;
     public EventInterceptor EI;
     public GameObject floorMask;
+    public int level = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +37,11 @@ public class DisplayManager : MonoBehaviour
         }
     }
 
-    public void SetUpConfiguration() {
-        int random = Random.Range(0, manifest.Count-1);
+    public void SetUpConfiguration()
+    {
+        int random = Random.Range(0, manifest.Count - 1);
 
-        JObject o = (JObject)manifest[random];
+        JObject o = (JObject)manifest[level];
 
         Debug.Log(o.ToString());
         StreamingAssetManager.instance.LoadImageFromStreamingAsset("images/background", o["background"].ToString(), (tex) =>
@@ -47,9 +49,11 @@ public class DisplayManager : MonoBehaviour
             backgroundImage.sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f));
         });
 
-        for (int i = 0; i < grid.transform.childCount; i++) {
+        for (int i = 0; i < grid.transform.childCount; i++)
+        {
             int color = GetColorForPosition(i, (JArray)o["options"]);
-            switch (color) {
+            switch (color)
+            {
                 case 0: grid.transform.GetChild(i).GetComponent<Image>().color = Color.red; break;
                 case 1: grid.transform.GetChild(i).GetComponent<Image>().color = Color.blue; break;
                 case 2: grid.transform.GetChild(i).GetComponent<Image>().color = Color.green; break;
@@ -69,13 +73,14 @@ public class DisplayManager : MonoBehaviour
                     img.enabled = true;
                 });
             }
-            else {
+            else
+            {
                 grid.transform.GetChild(i).GetComponent<Image>().sprite = null;
                 grid.transform.GetChild(i).GetComponent<Image>().color = Color.clear;
             }
         }
-        
-        for(int i = 0; i < 5; i++)
+
+        for (int i = 0; i < 5; i++)
         {
             EI.solution[i] = o["solution"][i].ToString();
 
@@ -85,11 +90,17 @@ public class DisplayManager : MonoBehaviour
         if (o["orientation"].ToString() == "v")
         {
             EI.isVertical = true;
+            floorMask.transform.GetChild(0).gameObject.SetActive(true);
+            floorMask.transform.GetChild(1).gameObject.SetActive(false);
         }
         else
         {
             EI.isVertical = false;
+            floorMask.transform.GetChild(0).gameObject.SetActive(false);
+            floorMask.transform.GetChild(1).gameObject.SetActive(true);
         }
+
+        level++;
 
         /*if (false)//o["orientation"].ToString() == "horizontal")
         {
