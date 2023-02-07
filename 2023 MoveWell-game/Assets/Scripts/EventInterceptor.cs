@@ -323,10 +323,11 @@ public class EventInterceptor : MonoBehaviour
         yield return new WaitForSeconds(3);
         //turn lights off
         MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.black);
-        
+        Debug.Log(disManager.level);
         //if it's the final level
-        if (disManager.level == 4)
+        if (disManager.level == 5)
         {
+            Debug.Log("finished");
             //turn on bubble machine
             foreach (string s in MagicRoomManager.instance.MagicRoomAppliancesManager.Appliances)
             {
