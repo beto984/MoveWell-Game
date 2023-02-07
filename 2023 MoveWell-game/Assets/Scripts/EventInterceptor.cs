@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EventInterceptor : MonoBehaviour
 {
     Dictionary<string, int> positionsMap = new Dictionary<string, int>();
     string[] currentSpheresPositions;
+    private const int MENU_SCENE_INDEX = 1;
 
     public SmartToyEventManager EV_A;
     public SmartToyEventManager EV_B;
@@ -252,18 +254,18 @@ public class EventInterceptor : MonoBehaviour
             currentSpheresPositions[3] +
             ", " +
             currentSpheresPositions[4] +
-            "]");
-        /*Debug.Log("solution [" +
-            solution[0] +
-            ", " +
-            solution[1] +
-            ", " +
-            solution[2] +
-            ", " +
-            solution[3] +
-            ", " +
-            solution[4] +
-            "]");*/
+            "]"); 
+        Debug.Log("solution [" +
+                            solution[0] +
+                            ", " +
+                            solution[1] +
+                            ", " +
+                            solution[2] +
+                            ", " +
+                            solution[3] +
+                            ", " +
+                            solution[4] +
+                            "]");
     }
     public void ReleaseTagE()
     {
@@ -314,17 +316,47 @@ public class EventInterceptor : MonoBehaviour
 
     private IEnumerator reward()
     {
-       
+        //turn light green
         MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.green);
+        //play Claps
         rewardSound.Play();
         yield return new WaitForSeconds(3);
+        //turn lights off
         MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.black);
-        disManager.SetUpConfiguration();
-        rewardSound.Stop();
+        
+        //if it's the final level
         if (disManager.level == 4)
         {
+            //turn on bubble machine
+            foreach (string s in MagicRoomManager.instance.MagicRoomAppliancesManager.Appliances)
+            {
+                MagicRoomManager.instance.MagicRoomAppliancesManager.SendChangeCommand(s, "ON");
+            }
+
+            yield return new WaitForSeconds(5);
             
+            //turn off bubble machine
+            foreach (string s in MagicRoomManager.instance.MagicRoomAppliancesManager.Appliances)
+            {
+                MagicRoomManager.instance.MagicRoomAppliancesManager.SendChangeCommand(s, "OFF");
+            }
+
+            //reset level in Display Manager
+            disManager.level = 0;
+            
+            //load menu
+            SceneManager.LoadSceneAsync(MENU_SCENE_INDEX);
+            //stop experience manager
+            MagicRoomManager.instance.ExperienceManagerComunication.SendEvent("stopped");
         }
+        else
+        {
+            //load new level 
+            disManager.SetUpConfiguration();
+        }
+        
+        
+        rewardSound.Stop();
     }
 
     private IEnumerator badReward()

@@ -101,16 +101,6 @@ public class DisplayManager : MonoBehaviour
         }
 
         level++;
-
-        /*if (false)//o["orientation"].ToString() == "horizontal")
-        {
-            floorMask.transform.GetChild(0).gameObject.SetActive(false);
-            floorMask.transform.GetChild(1).gameObject.SetActive(true);
-        }
-        else {
-            floorMask.transform.GetChild(0).gameObject.SetActive(true);
-            floorMask.transform.GetChild(1).gameObject.SetActive(false);
-        }*/
     }
 
     int GetColorForPosition(int i, JArray pos)
