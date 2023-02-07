@@ -316,18 +316,13 @@ public class EventInterceptor : MonoBehaviour
 
     private IEnumerator reward()
     {
-        //turn light green
-        MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.green);
-        //play Claps
-        rewardSound.Play();
-        yield return new WaitForSeconds(3);
-        //turn lights off
-        MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.black);
-        Debug.Log(disManager.level);
         //if it's the final level
         if (disManager.level == 5)
         {
-            Debug.Log("finished");
+            //turn light green
+            MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.green);
+            //play Claps
+            rewardSound.Play();
             //turn on bubble machine
             foreach (string s in MagicRoomManager.instance.MagicRoomAppliancesManager.Appliances)
             {
@@ -341,6 +336,9 @@ public class EventInterceptor : MonoBehaviour
             {
                 MagicRoomManager.instance.MagicRoomAppliancesManager.SendChangeCommand(s, "OFF");
             }
+            MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.black);
+
+            rewardSound.Stop();
 
             //reset level in Display Manager
             disManager.level = 0;
@@ -352,12 +350,20 @@ public class EventInterceptor : MonoBehaviour
         }
         else
         {
+            //turn light green
+            MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.green);
+            //play Claps
+            rewardSound.Play();
+            yield return new WaitForSeconds(3);
+            //turn lights off
+            MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.black);
             //load new level 
             disManager.SetUpConfiguration();
+            rewardSound.Stop();
         }
         
         
-        rewardSound.Stop();
+        
     }
 
     private IEnumerator badReward()
