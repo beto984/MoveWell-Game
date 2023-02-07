@@ -321,6 +321,10 @@ public class EventInterceptor : MonoBehaviour
         MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.black);
         disManager.SetUpConfiguration();
         rewardSound.Stop();
+        if (disManager.level == 4)
+        {
+            
+        }
     }
 
     private IEnumerator badReward()
@@ -329,5 +333,7 @@ public class EventInterceptor : MonoBehaviour
         yield return new WaitForSeconds(3);
         MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.black);
         inreward = false;
+
+        
     }
 }
