@@ -1180,8 +1180,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.048215453, y: 0.13785422}
   m_AnchorMax: {x: 0.9065995, y: 0.87900007}
-  m_AnchoredPosition: {x: 1.8000183, y: 1.300003}
-  m_SizeDelta: {x: 5.199997, y: 2.300003}
+  m_AnchoredPosition: {x: 20.0523, y: -17.0272}
+  m_SizeDelta: {x: -177.3228, y: -34.0545}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1523718529
 MonoBehaviour:
@@ -1216,7 +1216,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MoveWell-game
+  m_Text: 'Move
+
+    Well-game'
 --- !u!222 &1523718530
 CanvasRenderer:
   m_ObjectHideFlags: 0
