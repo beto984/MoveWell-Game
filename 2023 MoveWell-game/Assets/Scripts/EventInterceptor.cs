@@ -317,7 +317,7 @@ public class EventInterceptor : MonoBehaviour
     private IEnumerator reward()
     {
         //if it's the final level
-        if (disManager.level == 5)
+        if (disManager.level == ((Configuration)GameSetting.instance.configuration).numberOfSteps) 
         {
             //turn light green
             MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.green);
